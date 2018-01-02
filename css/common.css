@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	font-size: 0.28rem;
+	font-family:"苹方-简","华文细黑","微软雅黑", "Microsoft YaHei","sans-serif"; 
+	background: #ccc;
+	display: flex;
+	flex-direction: column;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}

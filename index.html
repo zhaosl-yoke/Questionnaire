@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问卷调查</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="title">孩子练琴习惯小检测</div>
+			<div class="name">
+				<input type="text" placeholder="请输入考生姓名" id="name"/>
+			</div>
+			<div class="btn">开始挑战</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+		<script type="text/javascript" src="js/rem.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.btn').click(function() {
+					var val = $('#name').val();
+					if (isChinese(val)) {
+						location.href = "step.html";
+					} else {
+						alert("请输入中文");
+					}					
+				})
+			})
+			//判断是否是中文
+			function isChinese(temp)  {  
+			 	var re = /[^\u4e00-\u9fa5]/;  
+			 	if(re.test(temp)){
+			 		return false;
+			 	} 
+			 	return true;  
+			}  
+		</script>
+	</body>
+</html>

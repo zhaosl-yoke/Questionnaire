@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问卷调查</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<link rel="stylesheet" href="css/step.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="step_1">
+				<div class="title">孩子练琴习惯小检测</div>
+				<div class="choose">
+					<div class="checkbox one">
+						<input type="radio" name="answer" id="answer1" value="answer"/><label for="answer1">A、打死不练琴，但舍不得打</label>
+					</div>
+					<div class="checkbox two">
+						<input type="radio" name="answer" id="answer2" value="answer"/><label for="answer2">B、打死不练琴，但舍不得打</label>
+					</div>
+					<div class="checkbox three">
+						<input type="radio" name="answer" id="answer3" value="answer"/><label for="answer3">C、打死不练琴，但舍不得打</label>
+					</div>
+				</div>
+				<div class="btn" data-index="0">确定</div>
+			</div>
+			<div class="step_2" style="display:none;">
+				<div class="title">孩子练琴习惯小检测2</div>
+				<div class="choose">
+					<div class="checkbox one1">
+						<input type="radio" name="answer" id="answer4" value="answer"/><label for="answer4">A、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox two1">
+						<input type="radio" name="answer" id="answer5" value="answer"/><label for="answer5">B、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox three1">
+						<input type="radio" name="answer" id="answer6" value="answer"/><label for="answer6">C、打死不练琴，但舍不得打2</label>
+					</div>
+				</div>
+				<div class="btn" data-index="1">确定</div>
+			</div>
+			<div class="step_3" style="display:none;">
+				<div class="title">孩子练琴习惯小检测2</div>
+				<div class="choose">
+					<div class="checkbox one2">
+						<input type="radio" name="answer" id="answer7" value="answer"/><label for="answer7">A、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox two2">
+						<input type="radio" name="answer" id="answer8" value="answer"/><label for="answer8">B、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox three2">
+						<input type="radio" name="answer" id="answer9" value="answer"/><label for="answer9">C、打死不练琴，但舍不得打2</label>
+					</div>
+				</div>
+				<div class="btn" data-index="2">确定</div>
+			</div>
+			<div class="step_4" style="display:none;">
+				<div class="title">孩子练琴习惯小检测2</div>
+				<div class="choose">
+					<div class="checkbox one3">
+						<input type="radio" name="answer" id="answer10" value="answer"/><label for="answer10">A、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox two3">
+						<input type="radio" name="answer" id="answer11" value="answer"/><label for="answer11">B、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox three3">
+						<input type="radio" name="answer" id="answer12" value="answer"/><label for="answer12">C、打死不练琴，但舍不得打2</label>
+					</div>
+				</div>
+				<div class="btn" data-index="3">确定</div>
+			</div>
+			<div class="step_5" style="display:none;">
+				<div class="title">孩子练琴习惯小检测2</div>
+				<div class="choose">
+					<div class="checkbox one4">
+						<input type="radio" name="answer" id="answer13" value="answer"/><label for="answer13">A、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox two4">
+						<input type="radio" name="answer" id="answer14" value="answer"/><label for="answer14">B、打死不练琴，但舍不得打2</label>
+					</div>
+					<div class="checkbox three4">
+						<input type="radio" name="answer" id="answer15" value="answer"/><label for="answer15">C、打死不练琴，但舍不得打2</label>
+					</div>
+				</div>
+				<div class="btn" data-index="4">确定</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+		<script type="text/javascript" src="js/rem.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.one').animate({'left': '0rem'},1000,'linear',function() {
+					$('.two').animate({'left': '0rem'},1000,'linear',function() {
+						$('.three').animate({'left': '0rem'},1000,'linear');
+					});
+				});								
+				$(".checkbox input").change(function(){
+			        $(":checked").parent().addClass("red").siblings().removeClass("red");
+			    });
+			    $('.btn').click(function() {
+			    	var index = $(this).data('index')+1;
+			    	var length = $(this).parent().find('.checkbox input:checked').length;
+			    	//alert(length);
+			    	if (length) {
+			    		if (index == 5) {
+			    			location.href = "success.html";
+			    		}
+			    		$('.step_'+index).hide();
+			    		$('.step_'+(index+1)).show();
+			    		$('.one'+index).animate({'left': '0rem'},1000,'linear',function() {
+							$('.two'+index).animate({'left': '0rem'},1000,'linear',function() {
+								$('.three'+index).animate({'left': '0rem'},1000,'linear');
+							});
+						});	
+			    	} else {
+			    		alert("请选择内容")
+			    	}
+			    })
+			})
+		</script>
+	</body>
+</html>
